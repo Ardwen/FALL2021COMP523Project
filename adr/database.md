@@ -16,16 +16,30 @@ Admin side data
 ## Constriants
 **Constraints** - Are there any kinds of possible solutions that are out of bounds for this project? For example, if the client isn’t willing to pay for a solution, that’s worth noting. Or perhaps solutions that only work on MacOS aren’t something the whole team can work with. Capture the constraints, as well as the reason for the constraints, here. Also capture any assumptions you’re making about what the client might want or not want.
 
-
+Available funding
+Type of data, privacy data, sentitive data
+Real-time constraint, certain speed
+How much time you have for development, maybe don't quite want to start from scratch
 
 ## Options
 Options - Which candidate solutions are you evaluating? List pros and cons for each one.
 
 Firebase:
 
-Azure Cosmo db:
+- Pros: Trial-tier
+- Cons:
 
-Python django:
+Azure App service:
+
+- Pros:
+- Cons:
+
+AWS Amplify:
+
+- Pros:
+- Cons:
+
+Look for hosted solutions vs. something that you have to host somewhere
 
 
 ## Rationale
