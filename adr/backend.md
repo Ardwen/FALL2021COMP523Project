@@ -1,46 +1,55 @@
-# Database Choice
+# Backend Choice
 
 ## Summary
 
-Summary - In order to store data persistently, we decided to use firebase.
+Summary - In order to store data safely and persistently, we decided to use firebase.
 
 ## Problem
-Problem - What problem do you need to solve? Describe the context of the problem. Why is it a problem? Why is it important to solve? Imagine writing to a classmate on another team. What would you need to tell them for them to understand the problem?
 
-We need to store both user's personal informamtion as well as the log data of their interaction with the quiz game. 
 
-Security
-
-Admin side data
+We need to store both the user's personal information as well as the log data of their interaction with the quiz game. 
+- For the user’s personal information, we need to make sure we will have a safe and stable database. Information security is important for us as our client wants to use that information as statistics to attract fundings and sponsors. Only a stable and secure backend would give users and sponsors a feeling of safety to provide us with the information and funding.
+- Since our core function is the quiz game, which requires a large number of transactions between the frontend and backend. For each quiz question, we would need to fetch them in realtime from the database in order to push them to the player user side. Also, the result for the quiz game needs to be stored in real time to the database.
 
 ## Constriants
-**Constraints** - Are there any kinds of possible solutions that are out of bounds for this project? For example, if the client isn’t willing to pay for a solution, that’s worth noting. Or perhaps solutions that only work on MacOS aren’t something the whole team can work with. Capture the constraints, as well as the reason for the constraints, here. Also capture any assumptions you’re making about what the client might want or not want.
 
-Available funding
-Type of data, privacy data, sentitive data
-Real-time constraint, certain speed
-How much time you have for development, maybe don't quite want to start from scratch
+Since we are collecting personal information of quiz players including sensitive information of their emails and addresses, we will need to have a secure and stable platform to store data. One of our future goals is to allow thousands of people to play the quiz games at the same time, so that there might be requirements in the real-time data transactions speeds and performances. Given the time limits we have, we also need to consider the learning curve for new technologies and balance the learning time and coding time. 
 
 ## Options
-Options - Which candidate solutions are you evaluating? List pros and cons for each one.
+We list the following technology options:
 
-Firebase:
-
-- Pros: Trial-tier
-- Cons:
-
-Azure App service:
+**Firebase**:
 
 - Pros:
+ Trial-tier, cost effective
+ Quick and easy development
+ Already implemented services and features
+ Real-time database
 - Cons:
+ Limitation in data migration
+ Limitation in handling complex queries
+ Can handle less than 1 million connections
 
-AWS Amplify:
+**Azure App service**:
+
+- Pros: 
+Apps can be quickly built, deployed and scaled;
+Easy to follow and use;
+Compatible with a number of technologies including .Net, .Net Core, Node.js, Java, Python, or PHP
+Built-in CI/CD integration
+- Cons:
+Require azure subscription, which can be expensive
+Will need to use another database service to store data, such as azure cosmo db, which may also be expensive
+
+**AWS Amplify**:
 
 - Pros:
+Cloud service
+Widely used, therefore it might be easier to get help if we encounter any problems.
 - Cons:
-
-Look for hosted solutions vs. something that you have to host somewhere
+Because the wide range of functionality, the learning curve for AWS is much slower
+Free tier only for 12 month
 
 
 ## Rationale
-Rationale - Which option did you choose? Why?
+We choose to use Google Firebase for backend. We mainly struggled choosing between Firebase and AWS as they both have a wide range of functionality. To begin with, the documentation is much more detailed and beginner friendly compared to its main competitor AWS. As we are new to most of these backend services, Firebase might be a better choice for us. Moreover, the cost for Firebase is much easier to calculate. It provides free tier usage for unlimited amounts of time and the pricing is straightforward. 
