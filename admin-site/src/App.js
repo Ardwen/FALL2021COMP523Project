@@ -26,17 +26,19 @@ function App() {
 
 const NavSection = ()=>{
     return(
-        <Navbar bg="light" variant="light">
-            <Container>
+        <Navbar bg="light" expand="lg">
+          <Container>
             <Navbar.Brand href="/home">FANzPlay</Navbar.Brand>
-            <Nav className="me-auto">
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="me-auto">
+              <Nav.Link href="/home"><FontAwesomeIcon icon={faHome} /></Nav.Link>
               <Nav.Link href="/newGame">New Game</Nav.Link>
               <Nav.Link href="/setting">Setting</Nav.Link>
-            </Nav>
-              <Navbar.Brand href="/home">My Game Center <FontAwesomeIcon icon={faHome} />
-              </Navbar.Brand>
+              </Nav>
+            </Navbar.Collapse>
 
-            </Container>
+          </Container>
         </Navbar>
     )
 }

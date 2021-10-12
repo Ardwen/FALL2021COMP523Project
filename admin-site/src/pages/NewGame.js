@@ -1,14 +1,19 @@
-import React from 'react';
+import {useState} from "react";
 import './css/NewGame.css'
-import {Card, Col, Row} from "react-bootstrap";
-import {gamelist} from "../mockdata";
+import {newgamelist} from "../mockdata";
+import GameCard from "./components/GameCard";
+import {Button, Row} from "react-bootstrap";
 
 function NewGame(){
+    const [list, setList] = useState(
+        newgamelist
+    )
     return (
         <>
             <div className={"NewGame"}>
                 <div className={"overlay"}>
                     <HeaderSection />
+                    <GameCards list={list} />
                 </div>
             </div>
         </>
@@ -16,12 +21,16 @@ function NewGame(){
 }
 
 const HeaderSection = () =>{
+    const search = ()=>{
+        console.log('search')
+    }
+
     return(
         <>
             <h1 className={"title"}>Add New Game</h1>
             <div className="input-group">
                 <input id={"searchtext"} type={"text"} autoComplete={"on"}/>
-                <button type="button" className="btn btn-primary">
+                <button type="button" className="btn btn-primary" onClick={search}>
                     <i className="fas fa-search"></i>
                 </button>
             </div>
@@ -29,33 +38,26 @@ const HeaderSection = () =>{
     )
 }
 
-const GameCards = (list) =>{
+const GameCards = ({list}) =>{
+    const ButtonSection = ()=>{
+        return(
+            <div className="buttonGroup">
+                <Button>Add Game</Button>
+                <Button>Details</Button>
+            </div>
+        )
+    }
+
     return (
         <>
             {/*grid display for game cards*/}
             <Row xs={1} md={2} className="g-4 gameCards">
               {Array.from(list).map((game, idx) => (
-                <Col key={game.gid}>
-                  <Card>
-                      <Card.Header>
-                          <Card.Img variant="top" src={game.logo1} />
-                          <span>vs.</span>
-                          <Card.Img variant="top" src={game.logo2} />
-                      </Card.Header>
-
-                    <Card.Body>
-                      <Card.Title>{game.name}</Card.Title>
-                      <Card.Text>
-                          {game.time}
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
+                    <GameCard key={game.gid} game={game} addIcon={<ButtonSection key={game.gid+'button'} />}></GameCard>
               ))}
             </Row>
         </>
     )
 }
-
 
 export default NewGame;

@@ -1,7 +1,7 @@
-import React from 'react';
 import './css/Home.css'
-import {Button, Card, Col, Row} from "react-bootstrap";
-import {gamelist} from "../mockdata";
+import {Button, Row} from "react-bootstrap";
+import {mygamelist} from "../mockdata";
+import GameCard from "./components/GameCard";
 
 function Home(){
     return(
@@ -26,32 +26,21 @@ const HeaderSection = ()=>{
     )
 }
 
-const GameCards = () =>{
+const GameCards = ({list}) =>{
     return (
         <>
             {/*grid display for game cards*/}
             <Row xs={1} md={2} className="g-4 gameCards">
-              {Array.from(gamelist).map((game, idx) => (
-                <Col key={game.gid}>
-                  <Card>
-                      <Card.Header>
-                          <Card.Img variant="top" src={game.logo1} />
-                          <span>vs.</span>
-                          <Card.Img variant="top" src={game.logo2} />
-                      </Card.Header>
-
-                    <Card.Body>
-                      <Card.Title>{game.name}</Card.Title>
-                      <Card.Text>
-                          {game.time}
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
+              {Array.from(list).map((game, idx) => (
+                <GameCard key={game.gid} game={game} />
               ))}
             </Row>
         </>
     )
+}
+
+GameCards.defaultProps = {
+    list: mygamelist,
 }
 
 export default Home;
