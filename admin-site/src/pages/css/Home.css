@@ -1,0 +1,29 @@
+.gameCards{
+    padding: 3vh 3vw;
+}
+
+.gameCards > .card-img, .card-img-bottom, .card-img-top{
+    width: 30%;
+}
+
+.home{
+    background-image: url("../background.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.overlay{
+    padding: 3vh;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.title{
+    color: white;
+}
+
+#addNewGame{
+    background-color: #afe607;
+    border-color: #AFE607;
+    margin-top: 2vh;
+}
