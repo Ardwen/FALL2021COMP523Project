@@ -1,12 +1,4 @@
-.gameCards{
-    padding: 3vh 3vw;
-}
-
-.gameCards > .card-img, .card-img-bottom, .card-img-top{
-    width: 30%;
-}
-
-.home{
+.NewGame{
     background-image: url("../background.jpg");
     background-repeat: no-repeat;
     background-position: center;
@@ -22,8 +14,7 @@
     color: white;
 }
 
-#addNewGame{
-    background-color: #afe607;
-    border-color: #AFE607;
-    margin-top: 2vh;
+.input-group{
+    text-align: center;
+    justify-content: center;
 }

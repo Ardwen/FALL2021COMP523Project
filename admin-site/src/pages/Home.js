@@ -2,7 +2,6 @@ import React from 'react';
 import './css/Home.css'
 import {Button, Card, Col, Row} from "react-bootstrap";
 import {gamelist} from "../mockdata";
-import background from './background.jpg'
 
 function Home(){
     return(
