@@ -7,6 +7,7 @@ import {Route, BrowserRouter as Router, Switch} from "react-router-dom";
 import Home from "./pages/Home";
 import NewGame from "./pages/NewGame";
 import Setting from "./pages/Setting";
+import ManageGame from "./pages/ManageGame";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
                 <Route path={"/home"} component={Home}></Route>
                 <Route path={"/newGame"} component={NewGame}></Route>
                 <Route path={"/setting"} component={Setting}></Route>
+                <Route path={"/manageGame/:id"} component={ManageGame}></Route>
             </Switch>
         </Router>
 

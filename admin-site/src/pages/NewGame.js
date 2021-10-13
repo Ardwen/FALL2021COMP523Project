@@ -1,7 +1,7 @@
 import {useState} from "react";
 import './css/NewGame.css'
 import {newgamelist} from "../mockdata";
-import GameCard from "./components/GameCard";
+import MyGameCard from "./components/MyGameCard";
 import {Button, Row} from "react-bootstrap";
 
 function NewGame(){
@@ -53,7 +53,7 @@ const GameCards = ({list}) =>{
             {/*grid display for game cards*/}
             <Row xs={1} md={2} className="g-4 gameCards">
               {Array.from(list).map((game, idx) => (
-                    <GameCard key={game.gid} game={game} addIcon={<ButtonSection key={game.gid+'button'} />}></GameCard>
+                    <MyGameCard key={game.gid} game={game} addIcon={<ButtonSection key={game.gid+'button'} />}></MyGameCard>
               ))}
             </Row>
         </>
