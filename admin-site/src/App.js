@@ -8,18 +8,28 @@ import Home from "./pages/Home";
 import NewGame from "./pages/NewGame";
 import Setting from "./pages/Setting";
 import ManageGame from "./pages/ManageGame";
+import PreGameManage from "./pages/PreGameManage";
+import './pages/css/background.css'
+import { auth } from "./service/firebase";
+import {db} from "./service/firebase";
 
 function App() {
   return (
     <div className="App">
 
        <NavSection />
-       <Switch>
+       <div className={'background'}>
+           <div className={'overlay'}>
+                <Switch>
                 <Route path={"/home"} component={Home}></Route>
                 <Route path={"/newGame"} component={NewGame}></Route>
                 <Route path={"/setting"} component={Setting}></Route>
                 <Route path={"/manageGame/:id"} component={ManageGame}></Route>
-            </Switch>
+                <Route path={"/pre/:id"} component={PreGameManage}></Route>
+       </Switch>
+           </div>
+       </div>
+
     </div>
   );
 }

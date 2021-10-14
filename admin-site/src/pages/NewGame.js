@@ -10,12 +10,8 @@ function NewGame(){
     )
     return (
         <>
-            <div className={"NewGame"}>
-                <div className={"overlay"}>
-                    <HeaderSection />
-                    <GameCards list={list} />
-                </div>
-            </div>
+           <HeaderSection />
+           <GameCards list={list} />
         </>
     )
 }

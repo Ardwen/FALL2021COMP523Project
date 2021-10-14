@@ -6,22 +6,6 @@
     width: 30%;
 }
 
-.home{
-    background-image: url("../background.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-
-.overlay{
-    padding: 3vh;
-    background-color: rgba(0, 0, 0, 0.7);
-}
-
-.title{
-    color: white;
-}
-
 #addNewGame{
     background-color: #afe607;
     border-color: #AFE607;

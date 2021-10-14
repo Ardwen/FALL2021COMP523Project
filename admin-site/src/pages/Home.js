@@ -7,12 +7,9 @@ import MyGameCard from "./components/MyGameCard";
 function Home(){
     return(
         <>
-            <div className={"home"}>
-                <div className={"overlay"}>
-                    <HeaderSection />
-                    <GameCards />
-                </div>
-            </div>
+            <HeaderSection />
+            <GameCards />
+
         </>
 
     )
