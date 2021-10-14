@@ -1,46 +1,44 @@
 import React from 'react';
-import {Button, Card, Col, Row} from "react-bootstrap";
-import {gamelist} from "../mockdata";
+import './css/Home.css'
+import {Button, Row, Modal} from "react-bootstrap";
+import {mygamelist} from "../mockdata";
+import MyGameCard from "./components/MyGameCard";
 
 function Home(){
     return(
         <>
             <HeaderSection />
             <GameCards />
+
         </>
+
     )
 }
 
 const HeaderSection = ()=>{
     return (
         <>
-            <h1>My Games</h1>
-            <Button>ADD New Game</Button>
+            <h1 className={"title"}>My Games</h1>
+            <Button href={"/newGame"} id={"addNewGame"}>ADD New Game</Button>
         </>
     )
 }
 
-const GameCards = () =>{
+const GameCards = ({list}) =>{
     return (
         <>
             {/*grid display for game cards*/}
-            <Row xs={1} md={2} className="g-4">
-              {Array.from(gamelist).map((game, idx) => (
-                <Col key={game.gid}>
-                  <Card>
-                    <Card.Img variant="top" src={game.logo} />
-                    <Card.Body>
-                      <Card.Title>{game.name}</Card.Title>
-                      <Card.Text>
-                          {game.time}
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
+            <Row xs={1} md={2} className="g-4 gameCards">
+              {Array.from(list).map((game, idx) => (
+                <MyGameCard key={game.gid} game={game} />
               ))}
             </Row>
         </>
     )
+}
+
+GameCards.defaultProps = {
+    list: mygamelist,
 }
 
 export default Home;
