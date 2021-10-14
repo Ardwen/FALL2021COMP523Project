@@ -33,7 +33,12 @@ function MyVerticallyCenteredModal(props) {
           </p>
       </Modal.Body>
       <Modal.Footer>
-          <Button href={`/manageGame/${props.game.gid}`}>Manage Game</Button>
+          <Link to={{pathname: `/manageGame/${props.game.gid}`,
+              state:{thisGame:props.game}
+            }}>
+              <Button>Manage Game</Button>
+          </Link>
+
         <Button onClick={props.onHide}
                 style={{backgroundColor: "cadetblue", border: "cadetblue"}}
         >Close</Button>

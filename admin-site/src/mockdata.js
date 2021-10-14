@@ -2,6 +2,7 @@ const mygamelist = [
     {
         gid: "g1",
         name: "UNC vs. Duke",
+        type: "NCAA Men's Basketball",
         logo1: "/logos/unc.png",
         logo2: "/logos/duke.png",
         date: "Oct 1",
@@ -12,6 +13,7 @@ const mygamelist = [
     {
         gid: "g2",
         name: "Wake Forest vs. Florida",
+        type: "NCAA Men's Basketball",
         logo1: "/logos/wake_forest.png",
         logo2: "/logos/florida.png",
         date: "Oct 11",
@@ -22,6 +24,7 @@ const mygamelist = [
     {
         gid: "g3",
         name: "Michigan vs. Rutgers",
+        type: "NCAA Men's Basketball",
         logo1: "/logos/michigan.png",
         logo2: "/logos/rutgers.png",
         date: "Oct 21",
@@ -32,6 +35,7 @@ const mygamelist = [
     {
         gid: "g4",
         name: "Virginia vs. Miami",
+        type: "NCAA Men's Basketball",
         logo1: "/logos/virginia.png",
         logo2: "/logos/miami.png",
         date: "Oct 29",
@@ -45,6 +49,7 @@ const newgamelist = [
         {
         gid: "g5",
         name: "Duke vs. Florida",
+        type: "NCAA Men's Basketball",
         logo1: "/logos/unc.png",
         logo2: "/logos/duke.png",
         date: "Oct 8",
@@ -55,6 +60,7 @@ const newgamelist = [
     {
         gid: "g6",
         name: "NC state vs. Virginia",
+        type: "NCAA Men's Basketball",
         logo1: "/logos/wake_forest.png",
         logo2: "/logos/florida.png",
         date: "Oct 10",
@@ -65,6 +71,7 @@ const newgamelist = [
     {
         gid: "g7",
         name: "UCLA vs. Oregon",
+        type: "NCAA Men's Basketball",
         logo1: "/logos/michigan.png",
         logo2: "/logos/rutgers.png",
         date: "Nov 20",
@@ -75,6 +82,7 @@ const newgamelist = [
     {
         gid: "g8",
         name: "UCLA vs. Oregon",
+        type: "NCAA Men's Basketball",
         logo1: "/logos/michigan.png",
         logo2: "/logos/rutgers.png",
         date: "Nov 24",
