@@ -59,7 +59,8 @@ const newgamelist = [
         date: "Oct 8",
         time: "2PM",
         location: "XXX",
-        quizNum: 30
+        quizNum: 30,
+        qidlist:[1,2,3,4]
     },
     {
         gid: "g6",
@@ -70,7 +71,8 @@ const newgamelist = [
         date: "Oct 10",
         time: "6PM",
         location: "XXX",
-        quizNum: 30
+        quizNum: 30,
+        qidlist:[1,2,3,4]
     },
     {
         gid: "g7",
@@ -81,7 +83,8 @@ const newgamelist = [
         date: "Nov 20",
         time: "1PM",
         location: "XXX",
-        quizNum: 30
+        quizNum: 30,
+        qidlist:[1,2,3,4]
     },
     {
         gid: "g8",
@@ -92,7 +95,8 @@ const newgamelist = [
         date: "Nov 24",
         time: "5PM",
         location: "XXX",
-        quizNum: 30
+        quizNum: 30,
+        qidlist:[1,2,3,4]
     }
 ]
 

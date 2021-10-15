@@ -3,13 +3,14 @@ import './css/Home.css'
 import {Button, Row, Modal} from "react-bootstrap";
 import {mygamelist} from "../mockdata";
 import MyGameCard from "./components/MyGameCard";
+import {getGames} from "../backend/gamefunc";
 
 function Home(){
     return(
         <>
             <HeaderSection />
             <GameCards />
-
+            {console.log(getGames())}
         </>
 
     )

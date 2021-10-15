@@ -1,17 +1,18 @@
 import {useState} from "react";
 import './css/NewGame.css'
 import {newgamelist} from "../mockdata";
-import MyGameCard from "./components/MyGameCard";
+import NewGameCard from "./components/NewGameCard";
 import {Button, Row} from "react-bootstrap";
 
 function NewGame(){
     const [list, setList] = useState(
         newgamelist
     )
+
     return (
         <>
            <HeaderSection />
-           <GameCards list={list} />
+           <GameCards list={list}/>
         </>
     )
 }
@@ -35,21 +36,13 @@ const HeaderSection = () =>{
 }
 
 const GameCards = ({list}) =>{
-    const ButtonSection = ()=>{
-        return(
-            <div className="buttonGroup">
-                <Button>Add Game</Button>
-                <Button>Details</Button>
-            </div>
-        )
-    }
 
     return (
         <>
             {/*grid display for game cards*/}
             <Row xs={1} md={2} className="g-4 gameCards">
               {Array.from(list).map((game, idx) => (
-                    <MyGameCard key={game.gid} game={game} addIcon={<ButtonSection key={game.gid+'button'} />}></MyGameCard>
+                    <NewGameCard key={game.gid} game={game}></NewGameCard>
               ))}
             </Row>
         </>
