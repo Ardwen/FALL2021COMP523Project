@@ -1,4 +1,4 @@
-import {db} from "../services/firebase"
+import {db} from "./firebase"
 
 export function getGames(){
     let gamelist=[];
@@ -45,7 +45,7 @@ export function getGames(){
                     "totalResult1":totalR1,
                     "totalResult2":totalR2
                 });
-        
+
     }).catch((error)=>{console.log("Unexpected error: "+error)});
     return gamelist;
  };
@@ -95,7 +95,7 @@ export function getGames(){
                 });
         })
     }).catch((error)=>{console.log("Unexpected error: "+error)});
-    return gamelist; 
+    return gamelist;
  };
 //  export function addGame(qlist,tlist,time,totalResult1,totalResult2){
 
