@@ -5,7 +5,7 @@ export function getGames(){
     db.collection('Games').get().then((snapshot)=>{
              snapshot.docs.forEach(doc=>{
                 // games.push(doc.data());
-                let gid=doc.get('gid');
+                let gid=doc.id;
                 let location=doc.get('location');
                 let qlist=doc.get('qlist');
                 let tlist=doc.get('tlist');
@@ -27,9 +27,9 @@ export function getGames(){
  };
  export function getGameId(gid){
     let gamelist=[];
-    db.collection('Games').where('gid','==',gid).get().then((snapshot)=>{
-        snapshot.docs.forEach(doc=>{
-            let gid=doc.get('gid');
+    db.collection('Games').doc(gid).get().then((doc)=>{
+        // snapshot.docs.forEach(doc=>{
+            let gid=doc.id;
             let location=doc.get('location');
             let qlist=doc.get('qlist');
             let tlist=doc.get('tlist');
@@ -45,7 +45,7 @@ export function getGames(){
                     "totalResult1":totalR1,
                     "totalResult2":totalR2
                 });
-        })
+        
     }).catch((error)=>{console.log("Unexpected error: "+error)});
     return gamelist;
  };
@@ -53,7 +53,7 @@ export function getGames(){
     let gamelist=[];
     db.collection('Games').where('tlist','array-contains-any',[tid]).get().then((snapshot)=>{
         snapshot.docs.forEach(doc=>{
-            let gid=doc.get('gid');
+            let gid=doc.id;
             let location=doc.get('location');
             let qlist=doc.get('qlist');
             let tlist=doc.get('tlist');
@@ -77,7 +77,7 @@ export function getGames(){
     let gamelist=[];
     db.collection('Games').where('tlist','array-contains-any',[tid1,tid2]).get().then((snapshot)=>{
         snapshot.docs.forEach(doc=>{
-            let gid=doc.get('gid');
+            let gid=doc.id;
             let location=doc.get('location');
             let qlist=doc.get('qlist');
             let tlist=doc.get('tlist');
