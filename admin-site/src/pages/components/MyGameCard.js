@@ -60,9 +60,9 @@ const MyGameCard = ({game, addIcon}) =>{
                           justifyContent: "space-evenly",
                           textAlign: "center",
                           alignItems: "center"}}>
-                          <Card.Img variant="top" src={game.logo1} />
+                          <Card.Img variant="top" src={game.logos[0]} />
                           <span style={{padding: "0 0.5em", fontSize:"1.5em"}}>vs.</span>
-                          <Card.Img variant="top" src={game.logo2} />
+                          <Card.Img variant="top" src={game.logos[1]} />
                       </Card.Header>
 
                     <Card.Body>
