@@ -8,10 +8,13 @@ import Home from "./pages/Home";
 import NewGame from "./pages/NewGame";
 import Setting from "./pages/Setting";
 import ManageGame from "./pages/ManageGame";
-import PreGameManage from "./pages/PreGameManage";
+import PreGameManage from "./pages/GameManagement/PreGameManage";
+import MidGameManage from "./pages/GameManagement/MidGameManage";
+import EndGameManage from "./pages/GameManagement/EndGameManage";
+import StartGameManage from "./pages/GameManagement/StartGameManage";
 import './pages/css/background.css'
-import { auth } from "./service/firebase";
-import {db} from "./service/firebase";
+import { auth } from "./backend/firebase";
+import {db} from "./backend/firebase";
 
 function App() {
   return (
@@ -26,6 +29,9 @@ function App() {
                 <Route path={"/setting"} component={Setting}></Route>
                 <Route path={"/manageGame/:id"} component={ManageGame}></Route>
                 <Route path={"/pre/:id"} component={PreGameManage}></Route>
+                <Route path={"/mid/:id"} component={MidGameManage}></Route>
+                <Route path={"/end/:id"} component={EndGameManage}></Route>
+                <Route path={"/start/:id"} component={StartGameManage}></Route>
        </Switch>
            </div>
        </div>
