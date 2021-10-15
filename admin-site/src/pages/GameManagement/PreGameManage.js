@@ -1,6 +1,6 @@
 import {useLocation} from "react-router-dom";
-import GameInfos from "./components/GameInfos";
-import {quizlist} from "../mockdata";
+import GameInfos from "../components/GameInfos";
+import {quizlist} from "../../mockdata";
 import {Button} from "react-bootstrap";
 
 const PreGameManage =() =>{
@@ -15,6 +15,7 @@ const PreGameManage =() =>{
     })
     return(
         <>
+            <h1 style={{color: "#afe607"}}>Pre Game Management</h1>
             <GameInfos thisGame={thisGame} />
             {currentlist.map((quiz, idx) =>(
                 <QuizBlock key={`quiz${quiz.qid}`} quiz={quiz} />
