@@ -1,3 +1,4 @@
+import React from "react"
 import {useLocation} from "react-router-dom";
 import GameInfos from "../components/GameInfos";
 import {quizlist} from "../../mockdata";
