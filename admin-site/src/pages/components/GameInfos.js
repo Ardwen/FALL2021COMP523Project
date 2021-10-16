@@ -4,11 +4,10 @@ const GameInfos = ({thisGame}) =>{
 
     return(
         <>
-                <h1 className={"title"}>{thisGame.name}</h1>
+                <h1 className={"title"}>{thisGame.name.stringValue}</h1>
                 <p style={{color: "white"}}>
-                    {thisGame.type} <br />
-                    {thisGame.date} <br />
-                    {thisGame.time}
+                    {thisGame.type.stringValue} <br />
+                    {thisGame.date.timestampValue}
                 </p>
         </>
     )

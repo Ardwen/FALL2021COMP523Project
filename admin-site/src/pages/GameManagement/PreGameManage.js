@@ -7,7 +7,8 @@ const PreGameManage =() =>{
     const location = useLocation()
     // game info past in location.state.thisGame
     const thisGame = location.state.thisGame;
-    const qidlist = thisGame.qidlist;
+    const qidlist = thisGame.qidlist.arrayValue.values.map(qid=>qid.stringValue);
+    console.log(qidlist)
     let currentlist = Array.from([]);
     qidlist.map((qid, idx) => {
         let quiz = quizlist.filter(q => q.qid == qid)[0];

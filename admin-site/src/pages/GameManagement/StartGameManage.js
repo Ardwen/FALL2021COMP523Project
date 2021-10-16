@@ -8,7 +8,7 @@ import {Button, ListGroup} from "react-bootstrap";
 const StartGameManage = () =>{
     const location = useLocation() // game info past in location.state.thisGame
     const thisGame = location.state.thisGame;
-    const qidlist = thisGame.qidlist; // get the quiz list for the current game
+    const qidlist = thisGame.qidlist.arrayValue.values.map(qid=>qid.stringValue); // get the quiz list for the current game
     let currentlist = Array.from([]);
     qidlist.map((qid, idx) => {
         let quiz = quizlist.filter(q => q.qid == qid)[0];

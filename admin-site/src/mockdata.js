@@ -102,25 +102,25 @@ const newgamelist = [
 
 const quizlist=[
     {
-        qid: 1,
+        qid: "q1",
         question:"Which coach has the most career NCAA fourmament wins?",
         answers: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
         correct: 4,
     },
     {
-        qid: 2,
+        qid: "q2",
         question:"I was drafted by the Golden State Warriors and won the Slam Dunk Competition in Oakland. Who am I?",
         answers: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
         correct: 3,
     },
     {
-        qid: 3,
+        qid: "q3",
         question:"Playing in the early 1990s, what number did Eric Montross wear on his unifom?",
         answers: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
         correct: 3,
     },
     {
-        qid: 4,
+        qid: "a4",
         question:"Prior to the beginning of the NCAA Tournament in 1939, North Carolina was undefeated and voted National Champions in what year?",
         answers: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
         correct: 3,
