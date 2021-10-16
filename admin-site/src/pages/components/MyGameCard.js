@@ -12,7 +12,7 @@ function MyVerticallyCenteredModal(props) {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter" style={{textAlign: "center"}}>
-            {props.game.name}
+            {props.game.name.stringValue}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -21,19 +21,18 @@ function MyVerticallyCenteredModal(props) {
               justifyContent: "space-evenly",
               textAlign: "center",
               alignItems: "center"}}>
-              <img src={props.game.logo1} style={{width: "40%"}}/>
+              <img src={props.game.logos.arrayValue.values[0].stringValue} style={{width: "40%"}}/>
               <span style={{padding: "0 0.5em", fontSize:"1.5em"}}>vs.</span>
-              <img src={props.game.logo2} style={{width:"40%"}} />
+              <img src={props.game.logos.arrayValue.values[1].stringValue} style={{width:"40%"}} />
           </div>
           <p style={{textAlign:"center"}}>
-                Game Day: {props.game.date}<br />
-                Time: {props.game.time}<br />
-                Location: {props.game.location}<br />
-                Quiz Number: {props.game.quizNum}
+                Game Date: {props.game.date.timestampValue}<br />
+                Location: {props.game.location.stringValue}<br />
+                Quiz Number: {props.game.quizNum.integerValue}
           </p>
       </Modal.Body>
       <Modal.Footer>
-          <Link to={{pathname: `/manageGame/${props.game.gid}`,
+          <Link to={{pathname: `/manageGame/${props.game.gid.stringValue}`,
               state:{thisGame:props.game}
             }}>
               <Button>Manage Game</Button>
@@ -60,15 +59,15 @@ const MyGameCard = ({game, addIcon}) =>{
                           justifyContent: "space-evenly",
                           textAlign: "center",
                           alignItems: "center"}}>
-                          <Card.Img variant="top" src={game.logos[0]} />
+                          <Card.Img variant="top" src={game.logos.arrayValue.values[0].stringValue} />
                           <span style={{padding: "0 0.5em", fontSize:"1.5em"}}>vs.</span>
-                          <Card.Img variant="top" src={game.logos[1]} />
+                          <Card.Img variant="top" src={game.logos.arrayValue.values[1].stringValue} />
                       </Card.Header>
 
                     <Card.Body>
-                      <Card.Title>{game.name}</Card.Title>
+                      <Card.Title>{game.name.stringValue}</Card.Title>
                       <Card.Text>
-                          {game.date + ', ' + game.time}
+                          {game.date.timestampValue}
                       </Card.Text>
                     </Card.Body>
                       {addIcon}

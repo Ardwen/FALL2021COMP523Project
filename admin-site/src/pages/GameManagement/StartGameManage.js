@@ -8,14 +8,15 @@ import {Button, ListGroup} from "react-bootstrap";
 const StartGameManage = () =>{
     const location = useLocation() // game info past in location.state.thisGame
     const thisGame = location.state.thisGame;
-    const qidlist = thisGame.qidlist; // get the quiz list for the current game
+    const qidlist = thisGame.qidlist.arrayValue.values.map(qid=>qid.stringValue); // get the quiz list for the current game
     let currentlist = Array.from([]);
     qidlist.map((qid, idx) => {
         let quiz = quizlist.filter(q => q.qid == qid)[0];
         currentlist.push(quiz);
     })
-    let [randomQuiz, setRandomQuiz] = useState(currentlist[Math.floor(Math.random()*currentlist.length)])
+
     let [myList, setCurrentList] = useState(currentlist)
+    let [randomQuiz, setRandomQuiz] = useState(myList[Math.floor(Math.random()*myList.length)])
     let [quizDone, setQuizDone] = useState((myList.length==0))
 
     const handlePushQuestion = (e) =>{

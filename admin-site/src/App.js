@@ -1,3 +1,4 @@
+import React from "react"
 import './App.css';
 import {Navbar, Container, Nav} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';

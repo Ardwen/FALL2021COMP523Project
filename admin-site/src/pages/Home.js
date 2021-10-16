@@ -3,14 +3,14 @@ import './css/Home.css'
 import {Button, Row, Modal} from "react-bootstrap";
 import {mygamelist} from "../mockdata";
 import MyGameCard from "./components/MyGameCard";
-import {getGames} from "../backend/gamefunc";
+import {gamesURL} from "../backend/restURL";
+import axios from "axios";
 
 function Home(){
     return(
         <>
             <HeaderSection />
-            <GameCards />
-            {console.log(getGames())}
+            <GameCards/>
         </>
 
     )
@@ -25,21 +25,28 @@ const HeaderSection = ()=>{
     )
 }
 
-const GameCards = ({list}) =>{
+const GameCards = () =>{
+    const [gameList, setGameList] = React.useState(Array.from([]));
+    React.useEffect(()=>{
+        axios.get(gamesURL).then((response) =>{
+            setGameList(response.data.documents.map(item => item.fields))
+        })
+    }, []);
     return (
         <>
+            {console.log(gameList)}
             {/*grid display for game cards*/}
             <Row xs={1} md={2} className="g-4 gameCards">
-              {Array.from(list).map((game, idx) => (
-                <MyGameCard key={game.gid} game={game} />
+              {Array.from(gameList).map((game, idx) => (
+                <MyGameCard key={game.gid.stringValue} game={game} />
               ))}
             </Row>
         </>
     )
 }
 
-GameCards.defaultProps = {
-    list: mygamelist,
-}
+// GameCards.defaultProps = {
+//     list: mygamelist,
+// }
 
 export default Home;

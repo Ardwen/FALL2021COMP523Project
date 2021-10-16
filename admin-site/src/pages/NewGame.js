@@ -1,4 +1,4 @@
-import {useState} from "react";
+import React, {useState} from "react";
 import './css/NewGame.css'
 import {newgamelist} from "../mockdata";
 import NewGameCard from "./components/NewGameCard";
