@@ -34,8 +34,8 @@ const LeaderBoard = ({game}) =>{
       }, []);
 
       console.log(resultList)
-    let t1List = resultList.filter(result => result.tid == "t1").sort((a,b) => b.score.integerValue - a.score.integerValue)
-    let t2List = resultList.filter(result => result.tid == "t2").sort((a,b) => b.score.integerValue - a.score.integerValue)
+    let t1List = resultList.filter(result => result.tid == "t1").sort((a,b) => b.score - a.score)
+    let t2List = resultList.filter(result => result.tid == "t2").sort((a,b) => b.score - a.score)
     let t1Score = t1List.map(result => parseInt(result.score)).reduce((a,b) => a+b,0)
     let t2Score = t2List.map(result => parseInt(result.score)).reduce((a,b) => a+b,0)
     console.log(t1Score)
