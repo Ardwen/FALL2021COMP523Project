@@ -11,8 +11,8 @@ import MidGameManage from "./pages/GameManagement/MidGameManage";
 import EndGameManage from "./pages/GameManagement/EndGameManage";
 import StartGameManage from "./pages/GameManagement/StartGameManage";
 import './pages/css/background.css'
-import { auth } from "./backend/firebase";
-import {db} from "./backend/firebase";
+import { auth } from "./service/firebase";
+import {db} from "./service/firebase";
 import Register from "./components/signup";
 import Login from "./components/login";
 import GameList from "./components/gamelist";

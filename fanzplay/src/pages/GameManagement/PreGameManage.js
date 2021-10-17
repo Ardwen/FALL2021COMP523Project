@@ -3,12 +3,13 @@ import {useLocation} from "react-router-dom";
 import GameInfos from "../components/GameInfos";
 import {quizlist} from "../../mockdata";
 import {Button} from "react-bootstrap";
+import NavSection from "../components/NavSection";
 
 const PreGameManage =() =>{
     const location = useLocation()
     // game info past in location.state.thisGame
     const thisGame = location.state.thisGame;
-    const qidlist = thisGame.qidlist.arrayValue.values.map(qid=>qid.stringValue);
+    const qidlist = thisGame.qidlist;
     console.log(qidlist)
     let currentlist = Array.from([]);
     qidlist.map((qid, idx) => {
@@ -17,6 +18,7 @@ const PreGameManage =() =>{
     })
     return(
         <>
+            <NavSection />
             <div className={"background"}>
                 <div className={"overlay"}>
                     <h1 style={{color: "#afe607"}}>Pre Game Management</h1>

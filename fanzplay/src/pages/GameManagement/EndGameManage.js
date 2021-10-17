@@ -2,7 +2,7 @@ import React from "react";
 import {useLocation} from "react-router-dom";
 import GameInfos from "../components/GameInfos";
 import axios from "axios";
-import {resultsURL} from "../../backend/restURL";
+import {resultsURL} from "../../api/api";
 import {ListGroup, Row, Col} from "react-bootstrap";
 
 const EndGameManage = () =>{

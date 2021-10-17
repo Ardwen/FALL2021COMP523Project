@@ -6,6 +6,8 @@ import {gamesURL} from "../api/api"
 import axios from "axios";
 import NavSection from "./components/NavSection";
 
+const currentUid = "u1"
+
 function Home(){
     return(
         <>
@@ -32,10 +34,11 @@ const HeaderSection = ()=>{
 }
 
 const GameCards = () =>{
+
     const [gameList, setGameList] = React.useState(null);
     React.useEffect(()=>{
         axios.get(gamesURL).then((response) =>{
-            setGameList(response.data.documents.map(item => item.fields))
+            setGameList(response.data);
         })
     }, []);
     if (gameList === null){
@@ -43,11 +46,9 @@ const GameCards = () =>{
     }
     return (
         <>
-            {console.log(gameList[0].uid.arrayValue.values)}
-            {/*grid display for game cards*/}
             <Row xs={1} md={2} className="g-4 gameCards">
-              {Array.from(gameList).map((game, idx) => (
-                <MyGameCard key={game.gid.stringValue} game={game} />
+              {Array.from(gameList.filter(g => g.uid.includes(currentUid))).map((game, idx) => (
+                <MyGameCard key={game.gid} game={game} />
               ))}
             </Row>
         </>

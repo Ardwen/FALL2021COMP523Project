@@ -3,12 +3,13 @@ import {useLocation} from "react-router-dom";
 import GameInfos from "../components/GameInfos";
 import {BackToCenterButton, ManagementCard} from "../ManageGame";
 import {quizlist} from "../../mockdata";
-import {Button, ListGroup} from "react-bootstrap";
+import {Button, ListGroup, Nav} from "react-bootstrap";
+import NavSection from "../components/NavSection";
 
 const StartGameManage = () =>{
     const location = useLocation() // game info past in location.state.thisGame
     const thisGame = location.state.thisGame;
-    const qidlist = thisGame.qidlist.arrayValue.values.map(qid=>qid.stringValue); // get the quiz list for the current game
+    const qidlist = thisGame.qidlist; // get the quiz list for the current game
     let currentlist = Array.from([]);
     qidlist.map((qid, idx) => {
         let quiz = quizlist.filter(q => q.qid == qid)[0];
@@ -29,6 +30,7 @@ const StartGameManage = () =>{
     }
     return(
         <>
+            <NavSection />
             <div className={"background"}>
                 <div className={"overlay"}>
                     <h1 style={{color: "#afe607"}}>Game Start</h1>
