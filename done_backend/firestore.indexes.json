@@ -1,0 +1,23 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "Results",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "gid",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "tid",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "score",
+          "order": "DESCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}
