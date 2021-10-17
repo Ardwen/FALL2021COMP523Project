@@ -14,6 +14,11 @@ class Confirm extends Component {
             <Header />
             <div className="center">
             <h1>Thank you for your participation</h1>
+            <Link to='/gamelist'>
+                <button className='button'>
+                  Back to Game List
+                </button>
+            </Link>
             </div>
             </div>
         )

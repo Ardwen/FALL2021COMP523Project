@@ -10,20 +10,30 @@ function LoginAdmin(props) {
 
   const handleLogin = async () => {
     try {
-      console.log(username.value);
-      await a = signin(username.value, password.value);
-      if(a){
-        props.history.push('/');
+      let a = await signin(username.value, password.value);
+      if(a.admin){
+        localStorage.setItem('uid', a.id);
+        localStorage.setItem('gidlist', a.gidlist)
+        props.history.push('/home');
       }else{
-        console.log("not a valid user");
+        console.log("not a valid administrator");
+        setError("not a valid administrator")
       }
     } catch (error) {
+      setError("Incorrect password or username");
       console.log(error);
     }
   }
 
   return (
-    <div className="center-white" >
+    <div className="logindiv" >
+    <img
+    src="asset/fanzplay-logo.png"
+    width="100"
+    height="100"
+    className="d-inline-block align-top"
+    />
+    <br />
       Login<br /><br />
       <div>
         Username<br />
@@ -35,7 +45,9 @@ function LoginAdmin(props) {
       </div>
       {error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br />
       <input type="button" value={'Login'} onClick={handleLogin} /><br />
-      <a href="/register">register now!</a>
+      <a href="/signupadmin">register now!</a>
+      <br />
+      <a href="/login">Log in as user</a>
     </div>
   );
 }

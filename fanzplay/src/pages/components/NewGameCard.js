@@ -1,18 +1,33 @@
 import {Button, Card, Col, Modal} from "react-bootstrap";
 import React, {useState} from "react";
 import axios from "axios";
-import {gamesURL} from "../../api/api";
+import {usersURL} from "../../api/api";
+import {Redirect} from "react-router-dom";
+
+const currentuid = localStorage.getItem("uid")
 
 function MyVerticallyCenteredModal(props) {
   const [putGame, setPutGame] = useState(false);
+  const [redirctTo, setRedirctTo] = useState(false);
 
   React.useEffect(()=>{
       if (putGame == true){
+          axios.get(usersURL+`/${currentuid}`).then((response)=>{
+              let curretgidlist = response.data.gidlist;
+              curretgidlist.push(props.game.id);
+              axios.put(usersURL+`/${currentuid}`, {gidlist:curretgidlist}).then((response)=>{
+                console.log(response.data)
+              })
+          })
          console.log("put game: " + props.game.id);
+          setRedirctTo(true)
       }
   }, [putGame]);
 
 
+  if(redirctTo){
+      return <Redirect to="/home" />
+  }
   return (
     <Modal
       {...props}

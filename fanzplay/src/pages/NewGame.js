@@ -5,16 +5,18 @@ import NewGameCard from "./components/NewGameCard";
 import {Button, Row} from "react-bootstrap";
 import NavSection from "./components/NavSection";
 import axios from "axios";
-import {gamesURL} from "../api/api";
+import {gamesURL, usersURL} from "../api/api";
 
 const currentUid = "u1"
 
 function NewGame(){
     const [list, setList] = useState(null);
     React.useEffect(() =>{
-        axios.get(gamesURL).then((response) =>{
-            console.log(response)
-            setList(response.data);
+        axios.get(usersURL+`/${localStorage.getItem("uid")}`).then((response) =>{
+            let gidlist = Array.from(response.data.gidlist)
+            axios.get(gamesURL).then((response) =>{
+                setList(response.data.filter(g => !gidlist.includes(g.id)));
+            })
         })
     }, []);
 
@@ -44,7 +46,7 @@ function NewGame(){
                     <HeaderSection />
                     <Button href={"/customizeGame"}>Add Customize Game</Button>
                     <Row xs={1} md={2} className="g-4 gameCards">
-                      {Array.from(list.filter(g=>!g.uid.includes(currentUid))).map((game, idx) => (
+                      {Array.from(list).map((game, idx) => (
                             <NewGameCard key={game.id} game={game}></NewGameCard>
                       ))}
                     </Row>
