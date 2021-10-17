@@ -1,21 +1,25 @@
-import React from "react"
+import React, {useEffect} from "react"
 import {useLocation} from "react-router-dom";
 import GameInfos from "../components/GameInfos";
 import {quizlist} from "../../mockdata";
 import {Button} from "react-bootstrap";
 import NavSection from "../components/NavSection";
+import {questionURL} from "../../api/api";
+import axios from "axios";
 
 const PreGameManage =() =>{
     const location = useLocation()
     // game info past in location.state.thisGame
     const thisGame = location.state.thisGame;
     const qidlist = thisGame.qidlist;
-    console.log(qidlist)
-    let currentlist = Array.from([]);
-    qidlist.map((qid, idx) => {
-        let quiz = quizlist.filter(q => q.qid == qid)[0];
-        currentlist.push(quiz);
-    })
+    const [currentlist, setList] = React.useState([]);
+
+    React.useEffect(()=>{
+        axios.get(questionURL).then((response)=>{
+            setList(response.data.filter(q=>qidlist.includes(q.id)))
+            }).catch((err)=>console.error(err))
+    }, [])
+
     return(
         <>
             <NavSection />
@@ -24,7 +28,7 @@ const PreGameManage =() =>{
                     <h1 style={{color: "#afe607"}}>Pre Game Management</h1>
                     <GameInfos thisGame={thisGame} />
                     {currentlist.map((quiz, idx) =>(
-                        <QuizBlock key={`quiz${quiz.qid}`} quiz={quiz} />
+                        <QuizBlock key={`quiz${quiz.id}`} quiz={quiz} />
                     ))}
                     <Button>Add Question</Button>
                 </div>

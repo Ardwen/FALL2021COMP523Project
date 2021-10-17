@@ -48,7 +48,7 @@ const GameCards = () =>{
         <>
             <Row xs={1} md={2} className="g-4 gameCards">
               {Array.from(gameList.filter(g => g.uid.includes(currentUid))).map((game, idx) => (
-                <MyGameCard key={game.gid} game={game} />
+                <MyGameCard key={game.id} game={game} />
               ))}
             </Row>
         </>

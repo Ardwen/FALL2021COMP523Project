@@ -32,7 +32,7 @@ function MyVerticallyCenteredModal(props) {
           </p>
       </Modal.Body>
       <Modal.Footer>
-          <Link to={{pathname: `/manageGame/${props.game.gid}`,
+          <Link to={{pathname: `/manageGame/${props.game.id}`,
               state:{thisGame:props.game}
             }}>
               <Button>Manage Game</Button>
