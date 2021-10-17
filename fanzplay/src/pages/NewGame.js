@@ -13,6 +13,7 @@ function NewGame(){
     const [list, setList] = useState(null);
     React.useEffect(() =>{
         axios.get(gamesURL).then((response) =>{
+            console.log(response)
             setList(response.data);
         })
     }, []);
@@ -32,23 +33,6 @@ function NewGame(){
         uid: ['u2']
     }
 
-    async function postGame(){
-        try{
-            const resp = await axios.post(gamesURL, newGame);
-            console.log(resp.data);
-        } catch (err){
-            console.error(err);
-        }
-    }
-
-    async function putGame(){
-        try{
-            const resp = await axios.put(gamesURL+`/qlJa8eE72r7eWEWG5VFb`,{uid: ["u1"]});
-        } catch (err){
-            console.error(err);
-        }
-    }
-
     if(list === null){
         return <div>Loading...</div>
     }
@@ -58,16 +42,14 @@ function NewGame(){
             <div className={"background"}>
                 <div className={"overlay"}>
                     <HeaderSection />
-                    <Button onClick={postGame}>Click Post</Button>
-                    <Button onClick={putGame("g4",)}>Put Game</Button>
+                    <Button href={"/customizeGame"}>Add Customize Game</Button>
                     <Row xs={1} md={2} className="g-4 gameCards">
                       {Array.from(list.filter(g=>!g.uid.includes(currentUid))).map((game, idx) => (
-                            <NewGameCard key={game.gid} game={game}></NewGameCard>
+                            <NewGameCard key={game.id} game={game}></NewGameCard>
                       ))}
                     </Row>
                 </div>
             </div>
-            <Button onClick={postGame}>Post Game</Button>
         </>
     )
 }
@@ -80,12 +62,12 @@ const HeaderSection = () =>{
     return(
         <>
             <h1 className={"title"}>Add New Game</h1>
-            <div className="input-group">
-                <input id={"searchtext"} type={"text"} autoComplete={"on"}/>
-                <button type="button" className="btn btn-primary" onClick={search}>
-                    <i className="fas fa-search"></i>
-                </button>
-            </div>
+            {/*<div className="input-group">*/}
+            {/*    <input id={"searchtext"} type={"text"} autoComplete={"on"}/>*/}
+            {/*    <button type="button" className="btn btn-primary" onClick={search}>*/}
+            {/*        <i className="fas fa-search"></i>*/}
+            {/*    </button>*/}
+            {/*</div>*/}
         </>
     )
 }
