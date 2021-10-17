@@ -10,9 +10,10 @@ import PreGameManage from "./pages/GameManagement/PreGameManage";
 import MidGameManage from "./pages/GameManagement/MidGameManage";
 import EndGameManage from "./pages/GameManagement/EndGameManage";
 import StartGameManage from "./pages/GameManagement/StartGameManage";
+import AddCustomizeGame from "./pages/AddCustomizeGame";
 import './pages/css/background.css'
-import { auth } from "./backend/firebase";
-import {db} from "./backend/firebase";
+import { auth } from "./service/firebase";
+import {db} from "./service/firebase";
 import Register from "./components/signup";
 import Login from "./components/login";
 import GameList from "./components/gamelist";
@@ -32,6 +33,7 @@ function App() {
                 <Route path={"/mid/:id"} component={MidGameManage}></Route>
                 <Route path={"/end/:id"} component={EndGameManage}></Route>
                 <Route path={"/start/:id"} component={StartGameManage}></Route>
+                <Route path={"/customizeGame"} component={AddCustomizeGame}></Route>
                     {/*add route for user-site*/}
                 <Route path='/signup' component={Register} />
                 <Route path='/login' component={Login} />

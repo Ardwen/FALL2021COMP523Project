@@ -1,8 +1,18 @@
 import {Button, Card, Col, Modal} from "react-bootstrap";
 import React, {useState} from "react";
-import {Link} from "react-router-dom";
+import axios from "axios";
+import {gamesURL} from "../../api/api";
 
 function MyVerticallyCenteredModal(props) {
+  const [putGame, setPutGame] = useState(false);
+
+  React.useEffect(()=>{
+      if (putGame == true){
+         console.log("put game: " + props.game.id);
+      }
+  }, [putGame]);
+
+
   return (
     <Modal
       {...props}
@@ -33,7 +43,10 @@ function MyVerticallyCenteredModal(props) {
           </p>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Add Game</Button>
+        <Button onClick={()=>{
+            props.onHide();
+            setPutGame((true));
+        }}>Add Game</Button>
 
         <Button onClick={props.onHide}
                 style={{backgroundColor: "cadetblue", border: "cadetblue"}}

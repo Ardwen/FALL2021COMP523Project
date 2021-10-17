@@ -2,6 +2,7 @@ import {Link, useLocation} from "react-router-dom";
 import GameInfos from "../components/GameInfos";
 import React from "react";
 import {ManagementCard, BackToCenterButton} from "../ManageGame";
+import NavSection from "../components/NavSection";
 
 const MidGameManage =() =>{
     const location = useLocation()
@@ -9,6 +10,7 @@ const MidGameManage =() =>{
     const thisGame = location.state.thisGame;
     return(
         <>
+            <NavSection />
             <div className={"background"}>
                 <div className={"overlay"}>
                     <h1 style={{color: "#afe607"}}>Mid Game Management</h1>
