@@ -39,7 +39,7 @@ function App() {
                     {/*add route for user-site*/}
                     <Route path='/signup' component={Register} />
                     <Route path='/loginadmin' component={LoginAdmin} />
-                    <Route path='/' component={Login} />
+                    <Route path='/login' component={Login} />
                     <Route path='/gamelist' component={GameList} />
                     <Route path='/game' component={Game} />
                     <Route path='/rewards' component={Reward} />

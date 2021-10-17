@@ -40,7 +40,7 @@ function Registeradmin(props) {
       <div style={{ marginTop: 15 }}>
         Email<br />
         <input type="email" {...email} autoComplete="new-email" />
-      </div>
+      </div>f
       <div style={{ marginTop: 15 }}>
         Password<br />
         <input type="password" {...password} autoComplete="new-password" />

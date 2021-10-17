@@ -13,6 +13,7 @@ function LoginAdmin(props) {
       let a = await signin(username.value, password.value);
       if(a.admin){
         localStorage.setItem('uid', a.id);
+        localStorage.setItem('gidlist', a.gidlist)
         props.history.push('/home');
       }else{
         console.log("not a valid administrator");
