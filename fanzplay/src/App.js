@@ -14,12 +14,14 @@ import AddCustomizeGame from "./pages/AddCustomizeGame";
 import './pages/css/background.css'
 import { auth } from "./service/firebase";
 import {db} from "./service/firebase";
-import Register from "./components/signup";
-import Login from "./components/login";
-import GameList from "./components/gamelist";
-import Game from "./components/quizboard";
-import Reward from "./components/reward";
-import Confirm from "./components/confirm";
+import GameList from './components/gamelist';
+import Game from './components/quizboard';
+import Reward from './components/reward';
+import Confirm from './components/confirm';
+import Login from './components/login';
+import LoginAdmin from './components/loginAdmin';
+import Register from './components/signup';
+import Registeradmin from './components/signupadmin';
 
 function App() {
   return (
@@ -35,12 +37,15 @@ function App() {
                 <Route path={"/start/:id"} component={StartGameManage}></Route>
                 <Route path={"/customizeGame"} component={AddCustomizeGame}></Route>
                     {/*add route for user-site*/}
-                <Route path='/signup' component={Register} />
-                <Route path='/login' component={Login} />
-                <Route path='/gamelist' component={GameList} />
-                <Route path='/game' component={Game} />
-                <Route path='/rewards' component={Reward} />
-                <Route path='/confirm' component={Confirm} />
+                    <Route path='/signup' component={Register} />
+                    <Route path='/loginadmin' component={LoginAdmin} />
+                    <Route path='/login' component={Login} />
+                    <Route path='/gamelist' component={GameList} />
+                    <Route path='/game' component={Game} />
+                    <Route path='/rewards' component={Reward} />
+                    <Route path='/confirm' component={Confirm} />
+                    <Route path='/loginadmin' component={LoginAdmin} />
+                    <Route path='/signupadmin' component={Registeradmin} />
        </Switch>
 
     </div>

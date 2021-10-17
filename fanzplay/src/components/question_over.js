@@ -12,8 +12,8 @@ export default function GameQuestionOver(props){
                     <h3 className='player-name'>Here are the result so far</h3>
                 </div>
                 <div class="grid-container">
-                  <div class="grid-item"><h2 class="grid">{props.team1_p}</h2><br/><img src={props.team1} style={{width: "100%"}}/></div>
-                  <div class="grid-item"><h2 class="grid">{props.team2_p}</h2><br/><img src={props.team2} style={{width: "100%"}}/></div>
+                  <div class="grid-item"><h2 class="grid">{props.team1_p+"%"}</h2><br/><img src={props.team1} style={{width: "100%"}}/></div>
+                  <div class="grid-item"><h2 class="grid">{props.team2_p+"%"}</h2><br/><img src={props.team2} style={{width: "100%"}}/></div>
                 </div>
                 <div className='center' >
                     <h3 className='player-name'>Stay tuned for the next round</h3>

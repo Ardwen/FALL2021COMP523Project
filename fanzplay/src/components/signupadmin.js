@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {signup} from "./auth.js"
 
-function Register(props) {
+function Registeradmin(props) {
   const password = useFormInput('');
   const email = useFormInput('');
   const [error, setError] = useState(null);
@@ -10,8 +10,8 @@ function Register(props) {
   const handleRegister = async () => {
     console.log(email.value);
       try {
-        let a = await signup(email.value, password.value, false);
-        props.history.push('/login')
+        let a = await signup(email.value, password.value, true);
+        props.history.push('/loginadmin')
         console.log(a);
           } catch (error) {
         console.log(error);
@@ -62,4 +62,4 @@ const useFormInput = initialValue => {
   }
 }
 
-export default Register;
+export default Registeradmin;

@@ -10,8 +10,8 @@ export default function GameOver(props){
               <h3 className='player-name'>Here are the final results</h3>
           </div>
           <div class="grid-container">
-          <div class="grid-item"><h2 class="grid">{props.team1_p}</h2><br/><img src={props.team1} style={{width: "60%"}}/></div>
-          <div class="grid-item"><h2 class="grid">{props.team2_p}</h2><br/><img src={props.team2} style={{width: "60%"}}/></div>
+          <div class="grid-item"><h2 class="grid">{props.team1_p+"%"}</h2><br/><img src={props.team1} style={{width: "60%"}}/></div>
+          <div class="grid-item"><h2 class="grid">{props.team2_p+"%"}</h2><br/><img src={props.team2} style={{width: "60%"}}/></div>
           </div>
           <div className='center' >
           {

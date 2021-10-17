@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 import Button from './button';
 import {getGames} from '../service/gamefunc';
 import './game.css';
-import {gamesURL} from "../api/api";
+import {gamesURL} from "../api/api2";
 
 
 class GameList extends Component {
@@ -21,7 +21,9 @@ class GameList extends Component {
           place:null,
           time:null,
           teampicked:false,
-          team:null
+          team:null,
+          t1:null,
+          t2:null
         }
         this.pickTeam = this.pickTeam.bind(this);
         this.fetchGame = this.fetchGame.bind(this);
@@ -46,25 +48,29 @@ class GameList extends Component {
           place:chosengame.location.stringValue,
           time:chosengame.date.timestampValue,
           team1:chosengame.logos.arrayValue.values[0].stringValue,
-          team2:chosengame.logos.arrayValue.values[1].stringValue
+          team2:chosengame.logos.arrayValue.values[1].stringValue,
+          t1:chosengame.team1.stringValue,
+          t2:chosengame.team2.stringValue
       })
+      let gamename=this.state.game_list[idx].name.split("/")
       localStorage.setItem('team1', chosengame.logos.arrayValue.values[0].stringValue);
       localStorage.setItem('team2', chosengame.logos.arrayValue.values[0].stringValue);
-      localStorage.setItem('gid', chosengame.gid.stringValue);
+      localStorage.setItem('gid', gamename[gamename.length-1]);
     }
 
 
-    pickTeam(t){
+    pickTeam(tid,t){
            //this.socket.emit('question-answered', {name: this.props.nickname, answer: num, pin: this.props.selectedPin})
          this.setState({
              teampicked:true,
              team:t
            })
+         localStorage.setItem('tid', tid);
          localStorage.setItem('team', t);
     }
 
     render() {
-        let { game_list,games,fetchedgame,team1,team2,gamename,place,time,teampicked,team } = this.state;
+        let { game_list,games,fetchedgame,team1,team2,gamename,place,time,teampicked,team,t1,t2 } = this.state;
         return (
             <div className='component-container' >
             <Header />
@@ -92,8 +98,8 @@ class GameList extends Component {
                     </div>
                     <div className='center' >
                     <div class="grid-container">
-                      <div class="grid-item"><button onClick={()=>this.pickTeam(team1)}><img src={team1} style={{width: "100%"}}/></button></div>
-                      <div class="grid-item"><button onClick={()=>this.pickTeam(team2)}><img src={team2} style={{width: "100%"}}/></button></div>
+                      <div class="grid-item"><button onClick={()=>this.pickTeam(t1,team1)}><img src={team1} style={{width: "100%"}}/></button></div>
+                      <div class="grid-item"><button onClick={()=>this.pickTeam(t2,team2)}><img src={team2} style={{width: "100%"}}/></button></div>
                     </div>
                     </div>
                     <div className='center' >

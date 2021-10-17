@@ -10,22 +10,29 @@ function Login(props) {
 
   const handleLogin = async () => {
     try {
-      console.log(username.value);
       let a = await signin(username.value, password.value);
-      if(a){
-        props.history.push('/gamelist');
+      if(a.admin){
         console.log("not a valid user");
+        setError("not a valid user")
       }else{
+        localStorage.setItem('uid', a.id);
         props.history.push('/gamelist');
       }
-
     } catch (error) {
+      setError("Incorrect password or username");
       console.log(error);
     }
   }
 
   return (
-    <div className="center-white" >
+    <div className="logindiv" >
+      <img
+      src="asset/fanzplay-logo.png"
+      width="100"
+      height="100"
+      className="d-inline-block align-top"
+      />
+      <br />
       Login<br /><br />
       <div>
         Username<br />
@@ -37,9 +44,9 @@ function Login(props) {
       </div>
       {error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br />
       <input type="button" value={'Login'} onClick={handleLogin} /><br />
-      <a href="/register">register now!</a>
+      <a href="/signup">register now!</a>
       <br />
-      <a href="/loginAdmin">Log in as an administrator</a>
+      <a href="/loginadmin">Log in as an administrator</a>
     </div>
   );
 }

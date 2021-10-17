@@ -6,9 +6,9 @@ import { Container,Row,Col } from 'react-bootstrap';
 import './game.css';
 
 const reward_list = [
-  { id: 1, title: '15% off any NCAA team store purchase.', expire:"August 31, 2020" },
-  { id: 2, title: 'Half off any lunch or dinner entree.',expire:"December 31, 2020" },
-  { id: 3, title: '$15 off any purchase of $100 or more.', expire:"May 31, 2020"}
+  { id: 1, title: '15% off any NCAA team store purchase.', expire:"August 31, 2020", brand:"asset/brand1.png" },
+  { id: 2, title: 'Half off any lunch or dinner entree.',expire:"December 31, 2020" ,brand:"asset/brand2.png" },
+  { id: 3, title: '$15 off any purchase of $100 or more.', expire:"May 31, 2020",brand:"asset/brand3.png" }
 ];
 
 class Reward extends Component {
@@ -58,15 +58,15 @@ class Reward extends Component {
                         <Col sm={4}>
                         <button onClick={()=>this.pickReward(item)}>
                         <img
-                          src="asset/brand1.png"
+                          src={item.brand}
                           width="70"
                           height="70"
                       />
                         </button>
                         </Col>
                         <Col sm={8}>
-                        <p>{item.title}</p>
-                        <p>{item.expire}</p>
+                        <h4>{item.title}</h4>
+                        <h4>{item.expire}</h4>
                         </Col>
                       </Row>
                     )})
@@ -80,17 +80,19 @@ class Reward extends Component {
                     </div>
                     <div className='center' >
                         <img
-                          src="asset/brand1.png"
+                          src={reward.brand}
                           width="70"
                           height="70"
                         />
                         <h3>{reward.title}</h3>
                         <h3>{reward.expire}</h3>
+                        <div className='center' >
                         <Link to='/confirm'>
                             <button className='button' onClick={()=>this.confirmReward(reward.id)}>
                                 confirm
                             </button>
                         </Link>
+                        </div>
                   </div>
                 </div>
               }
