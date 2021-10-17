@@ -5,28 +5,35 @@ import {BackToCenterButton, ManagementCard} from "../ManageGame";
 import {quizlist} from "../../mockdata";
 import {Button, ListGroup, Nav} from "react-bootstrap";
 import NavSection from "../components/NavSection";
+import axios from "axios";
+import {questionURL} from "../../api/api";
 
 const StartGameManage = () =>{
     const location = useLocation() // game info past in location.state.thisGame
     const thisGame = location.state.thisGame;
-    const qidlist = thisGame.qidlist; // get the quiz list for the current game
-    let currentlist = Array.from([]);
-    qidlist.map((qid, idx) => {
-        let quiz = quizlist.filter(q => q.qid == qid)[0];
-        currentlist.push(quiz);
-    })
+    const [qidlist, setQidList] = useState(thisGame.qidlist)  // get the quiz list for the current game
+    const [randomIdx, setRandomIdx] = useState(Math.floor((Math.random()*qidlist.length)))
+    const [quizDone, setQuizDone] = useState((qidlist.length==0))
+    const [currentQuiz, setCurrentQuiz] = useState(null)
+    React.useEffect(()=>{
+        console.log(qidlist[randomIdx])
+        axios.get(questionURL+`/${qidlist[randomIdx]}`).then((response) =>{
+                setCurrentQuiz(response.data)
+            }
+        ).catch((err) => console.error(err))
+    }, [randomIdx])
 
-    let [myList, setCurrentList] = useState(currentlist)
-    let [randomQuiz, setRandomQuiz] = useState(myList[Math.floor(Math.random()*myList.length)])
-    let [quizDone, setQuizDone] = useState((myList.length==0))
 
     const handlePushQuestion = (e) =>{
-        // remove current question
-        setCurrentList(myList.filter(q => q.qid != randomQuiz.qid));
-        setRandomQuiz(myList[Math.floor(Math.random()*myList.length)]);
-        setQuizDone((myList.length==1));
-        console.log(randomQuiz.qid)
-        console.log(myList);
+
+        qidlist.splice(randomIdx,1);
+        setRandomIdx(Math.floor((Math.random()*qidlist.length)))
+        console.log(qidlist)
+        setQuizDone((qidlist.length == 0))
+    }
+
+    if (currentQuiz === null){
+        return(<div>Loading...</div>)
     }
     return(
         <>
@@ -35,9 +42,9 @@ const StartGameManage = () =>{
                 <div className={"overlay"}>
                     <h1 style={{color: "#afe607"}}>Game Start</h1>
                     <GameInfos thisGame={thisGame} />
-                    <QuizDisplay quiz = {randomQuiz}/>
+                    {/*<div style={{color: "white"}}>{qidlist[randomIdx]}</div>*/}
+                    <QuizDisplay quiz = {currentQuiz}/>
                     <div>
-                        {console.log(quizDone)}
                         {quizDone ? (
                              <BackToCenterButton text={"End Game"} />
                         ):(
