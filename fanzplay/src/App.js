@@ -25,7 +25,7 @@ import Registeradmin from './components/signupadmin';
 
 function App() {
   return (
-    <div className="App">
+    <div className={"App"}>
                 <Switch>
                 <Route path={"/home"} component={Home}></Route>
                 <Route path={"/newGame"} component={NewGame}></Route>

@@ -15,8 +15,8 @@ function LoginAdmin(props) {
         localStorage.setItem('uid', a.id);
         props.history.push('/home');
       }else{
-        console.log("not a valid user");
-        setError("not a valid user")
+        console.log("not a valid administrator");
+        setError("not a valid administrator")
       }
     } catch (error) {
       setError("Incorrect password or username");
