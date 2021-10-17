@@ -8,19 +8,6 @@ import {gamesURL, teamsURL} from "../api/api";
 const currentUser = "u2";
 const AddCustomizeGame = () =>{
 
-      // const formValue = {
-      //   date: null,
-      //   location: null,
-      //   logos: [],
-      //   name: null,
-      //   qidlist: [],
-      //   quizNum: this.qidlist.length,
-      //   tidlist: [],
-      //   totalResult1: null,
-      //   totalResult2: null,
-      //   type: null,
-      //   uid: currentUser
-      // }
   const onFormSubmit = e => {
           e.preventDefault()
           const formData = new FormData(e.target)
