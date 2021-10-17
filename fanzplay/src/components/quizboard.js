@@ -88,8 +88,8 @@ class Game extends Component {
                 axios.put("https://us-central1-fanzplay.cloudfunctions.net/api/Games/"+this.state.gid, {totalResult1:p1});
               } else {
                 p2=p2+1
-                axios.put("https://us-central1-fanzplay.cloudfunctions.net/api/Games/"+this.state.gid, {totalResult2:p2});
                 if (this.state.curQuiz+1===this.state.question_list.length){this.end_game(p2,p1,score)}
+                axios.put("https://us-central1-fanzplay.cloudfunctions.net/api/Games/"+this.state.gid, {totalResult2:p2});
               }
             }
             this.setState({
