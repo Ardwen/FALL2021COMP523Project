@@ -97,9 +97,9 @@ class GameList extends Component {
                         <h2 >Pick your team</h2>
                     </div>
                     <div className='center' >
-                    <div class="grid-container">
-                      <div class="grid-item"><button onClick={()=>this.pickTeam(t1,team1)}><img src={team1} style={{width: "100%"}}/></button></div>
-                      <div class="grid-item"><button onClick={()=>this.pickTeam(t2,team2)}><img src={team2} style={{width: "100%"}}/></button></div>
+                    <div className="grid-container">
+                      <div className="grid-item"><button onClick={()=>this.pickTeam(t1,team1)}><img src={team1} style={{width: "100%"}}/></button></div>
+                      <div className="grid-item"><button onClick={()=>this.pickTeam(t2,team2)}><img src={team2} style={{width: "100%"}}/></button></div>
                     </div>
                     </div>
                     <div className='center' >

@@ -27,6 +27,11 @@ export default function GameOver(props){
             :
             <div className='center' >
             <h3 className='player-name'>Thanks for your participation, Try next time!</h3>
+            <Link to='/gamelist'>
+                <button className='button'>
+                  Back to Game List
+                </button>
+            </Link>
             </div>
           }
           </div>
